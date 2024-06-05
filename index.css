@@ -1,0 +1,32 @@
+body {
+	margin: 0;
+	padding: 1rem;
+}
+
+
+.slide {
+	height: 20rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.slide-1 {
+	background-color: aqua;
+}
+
+.slide-2 {
+	background-color: rgb(43, 230, 80);
+}
+
+.slide-3{
+	background-color: rgb(188, 112, 31);
+}
+
+.slide-4 {
+	background-color: rgb(218, 49, 233);
+}
+
+.slide-5 {
+	background-color: rgb(38, 25, 185);
+}
