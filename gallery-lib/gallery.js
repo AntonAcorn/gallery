@@ -39,6 +39,13 @@ class Gallery {
 	setParameters() {
 		const coordsContainer = this.containerNode.getBoundingClientRect();
 		console.log(coordsContainer);
+
+		this.width = coordsContainer.width;
+
+		this.lineNode.style.width = `${this.size * this.width}px`;
+		Array.from(this.slidesNodes).forEach((slideNode) => {
+			slideNode.style.width = `${this.width}px`;
+		})
 	}
 }
 
