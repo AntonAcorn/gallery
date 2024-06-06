@@ -12,9 +12,13 @@ class Gallery {
 
 		this.manageHTML = this.manageHTML.bind(this);
 		this.setParameters = this.setParameters.bind(this);
+		this.setEvents = this.setEvents.bind(this);
+		this.resizeGallery = this.resizeGallery.bind(this);
 
 		this.manageHTML();
 		this.setParameters();
+		this.setEvents();
+		this.resizeGallery();
 	}
 
 	manageHTML() {
@@ -47,6 +51,17 @@ class Gallery {
 			slideNode.style.width = `${this.width}px`;
 		})
 	}
+
+	// A recount is done for each changed pixel, so it's better to use debounce.
+	setEvents() {
+		window.addEventListener('resize', debounce(this.resizeGallery))
+	}
+
+	//Change size of the window when a user resize it,
+	resizeGallery() {
+		this.setParameters();
+		console.log('resizes');
+	}
 }
 
 // Helpers
@@ -59,4 +74,14 @@ function wrapElementByDiv({element, className}) {
 
 	return wrapperNode;
 }
+
+function debounce(fn, time = 100) {
+	let timer;
+	return function (event) {
+		clearTimeout(timer);
+		timer = setTimeout(fn, time, event);
+	}
+}
+
+
 
